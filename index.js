@@ -3,7 +3,9 @@ import StatusCodes from 'http-status-codes';
 
 const app = express();
 const PORT = process.env.PORT || 8080;
-let usuarios = [{
+
+let usuarios = [
+    {
         id: 1,
         name: 'Jonathan Roberto',
         age: 29
@@ -63,17 +65,3 @@ app.delete('/users/:userId', (req, res) => {
 
     return res.status(StatusCodes.NO_CONTENT).send();
 })
-
-// outra maneira
-// app.delete('/users/:userId', (req, res) => {
-//     const userId = req.params.userId;
-//     const deleteUser = req.body;
-
-//     usuarios = usuarios.map(usuario => {
-//         if (Number(userId) === usuario.id) {
-//             return deleteUser;
-//         }
-//         return usuario;
-//     });
-//     return res.send(deleteUser);
-// });
